@@ -1,0 +1,34 @@
+<!-- public/upload.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload d'Image</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Uploader une Image</h1>
+
+    <!-- ATTENTION : enctype="multipart/form-data" est OBLIGATOIRE pour l'upload -->
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="imageFile">Choisir une image (JPG, PNG, GIF - max 5MB) :</label>
+            <!-- Le name="imageFile" doit correspondre à celui utilisé dans multer -->
+            <!-- accept="..." aide le navigateur, mais la validation serveur est essentielle -->
+            <input type="file" id="imageFile" name="imageFile" accept="image/jpeg, image/png, image/gif" required>
+        </div>
+        <button type="submit">Uploader l'Image</button>
+    </form>
+
+    <!-- Section pour afficher la dernière image uploadée (simule une galerie) -->
+    <h2>Dernière image uploadée :</h2>
+    <div id="gallery">
+        <!-- Le serveur ajoutera l'image ici après un upload réussi -->
+        <p>Aucune image uploadée pour le moment.</p>
+    </div>
+
+    <p><a href="/">Retour à l'accueil</a></p>
+
+</body>
+</html>
